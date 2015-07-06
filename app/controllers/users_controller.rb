@@ -1,8 +1,8 @@
 class UsersController < ApplicationController
-  before_filter :authenticate_user!, :except=>[:show]
+  before_action :authenticate_user!, only: [:index, :edit, :update]
 
   def index
-    @users = User.all    
+    @users = User.paginate(page: params[:page])    
   end
 
   def show
