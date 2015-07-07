@@ -14,9 +14,7 @@ class User < ActiveRecord::Base
   validates :name, presence: true, length: { maximum: 50 }
   
   def feed
-    # このコードは準備段階です。
-    # 完全な実装は、次回以降に行います。
-    Micropost.where("user_id = ?", id)
+    Micropost.from_users_followed_by(self)
   end
 
   def following?(other_user)
