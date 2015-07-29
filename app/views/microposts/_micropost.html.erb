@@ -1,5 +1,12 @@
 <li>
   <span class="content"><%= micropost.content %></span>
+  
+  <% if micropost.image? %>
+    <iv class="image">
+      <%= image_tag micropost.image.url(:thumb) %>
+    </div>
+  <% end %>
+  
   <span class="timestamp">
     Posted <%= time_ago_in_words(micropost.created_at) %> ago.
   </span>
