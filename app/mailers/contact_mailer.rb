@@ -10,6 +10,7 @@ class ContactMailer < ActionMailer::Base
 
     @contact = contact
 
-    mail(to: @contact.email, subject: "Thank you for your contact!")
+    mail(to: ["raidersjapan@gmail.com", @contact.email], subject: "Thank you for your contact!" )
+    
   end
 end
